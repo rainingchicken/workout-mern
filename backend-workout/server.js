@@ -18,7 +18,7 @@ app.get("/api/workouts", async (req, res) => {
 
   try {
     const allWorkouts = await Workout.find({}).sort({ createdAt: -1 });
-    res.status(200).json(allWorkouts);
+    res.status(200).json({ allWorkouts });
   } catch (error) {
     res.status(404).json({ error: `Something went wrong ${error.message}` });
   }
@@ -31,7 +31,7 @@ app.post("/api/workouts", async (req, res) => {
   // console.log(req.body);
   try {
     const newWorkout = await Workout.create({ title, reps, load });
-    res.status(200).json(newWorkout);
+    res.status(200).json({ newWorkout });
   } catch (error) {
     res.status(404).json({ error: error.message });
   }

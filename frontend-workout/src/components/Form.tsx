@@ -29,12 +29,13 @@ const Form = () => {
   };
 
   const handleSubmit = async () => {
+    // e.preventDefault();
     const newWorkout = {
       title: workout.title,
       reps: workout.reps,
       load: workout.load,
     };
-    const response = await fetch(`${VITE_API_BASE_URL}api/workouts`, {
+    const response = await fetch(`${VITE_API_BASE_URL}/api/workouts`, {
       method: "POST",
       body: JSON.stringify(newWorkout),
       headers: {
@@ -46,8 +47,10 @@ const Form = () => {
     if (!response.ok) {
       setError(data.error);
     } else {
+      setWorkout(newWorkout);
       setError(null);
-      //   console.log("added!");
+
+      console.log("added!");
     }
   };
 

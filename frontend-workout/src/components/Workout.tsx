@@ -32,7 +32,7 @@ const Workout = ({ workout }: IParameter) => {
       setError(null);
     }
 
-    location.reload(); //refresh page so see that deleted item is gone
+    // location.reload(); //refresh page so see that deleted item is gone
   };
 
   return (
